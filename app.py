@@ -51,22 +51,22 @@ def create_cupcake():
 @app.route('/api/cupcakes/<int:id>', methods=['PATCH'])
 def update_cupcake(id):
     """ Update a cupcake in the db """
-        cupcake=Cupcake.read_cupcake_info(id)
-        cupcake.flavor = request.json.get('flavor', cupcake.flavor)
-        cupcake.size=request.json.get('size', cupcake.size)
-        cupcake.rating=request.json.get('rating', cupcake.rating)
-        cupcake.image=request.json.get('image', cupcake.image)
-        # db.session.add(cupcake)
-        db.session.commit()
-        return (get_cupcake_info(cupcake.id), 200)
+    cupcake=Cupcake.read_cupcake_info(id)
+    cupcake.flavor = request.json.get('flavor', cupcake.flavor)
+    cupcake.size=request.json.get('size', cupcake.size)
+    cupcake.rating=request.json.get('rating', cupcake.rating)
+    cupcake.image=request.json.get('image', cupcake.image)
+    # db.session.add(cupcake)
+    db.session.commit()
+    return (get_cupcake_info(cupcake.id), 200)
 
 
 @app.route('/api/cupcakes/<int:id>', methods=['DELETE'])
 def delete_cupcake(id):
     """ Delete a cupcake from the db """
-        cupcake=Cupcake.read_cupcake_info(id)
-        Cupcake.delete(id)
-        db.session.commit()
-        return jsonify({'message': 'Deleted'})
+    cupcake=Cupcake.read_cupcake_info(id)
+    Cupcake.delete(id)
+    db.session.commit()
+    return jsonify({'message': 'Deleted'})
 
 
