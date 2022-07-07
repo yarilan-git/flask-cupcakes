@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div id="content_area">
+        <div id="cupcake_list"></div>
+        <div id="add_cupcake_form">
+            <form action='/api/cupcakes' method="POST">
+                <h2>Use this form to add cupcakes</h2>
+                <div class="form_line">
+                    <label class="label" for="flavor">Flavor</label>
+                    <input type="text" id="flavor" name="flavor">
+                </div>
+                <div class="form_line">
+                    <label class="label" for="size">Size</label>
+                    <input type="text" id="size" name="size">
+                </div>
+                <div class="form_line">
+                    <label class="label" for="rating">Rating</label>
+                    <input type="text" id="rating" name="rating">
+                </div>
+                <div class="form_line">
+                    <label class="label" for="image">Image</label>
+                    <input type="text" id="image" name="image">
+                </div>
+                <div id="message" class="message hidden"></div>
+        
+                <div class="form_line">
+                  <button id="cancel" formmethod="GET" class="inline" type="submit">Cancel</button>
+                  <button id="add" class="inline" type="submit">Add</button>
+              </div>
+        
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+    
+
